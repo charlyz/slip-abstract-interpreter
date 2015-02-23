@@ -1,0 +1,80 @@
+main(){
+  
+    read(a) ; 
+    read(b );
+
+  if (a < 0)
+     if (b < 0)
+         x = a - b ; 
+     else if (b == 0)
+       {
+         x = a + b ; 
+         y = a * b ; 
+         z = b - a ; 
+       }
+     else
+       {
+         x = a + b ; 
+       }
+  else
+     if (b < 0)
+         x = a + b ; 
+     else if (b > 0)
+       {
+         x = a - b ; 
+         y = a / b ; 
+         z = a % b ; 
+       }
+ 
+  x = sign(makeList(237));
+
+  if (x == 1 | x == -1)
+    u = 237;
+
+  write(u);           
+
+  x = 15 ;
+  y = -20 ;
+
+  if (x > y)
+    v = 237;
+
+  z = v ;             
+
+  return (z);
+
+ }
+
+newCell()
+{
+   read(a);
+   if (a == 2) return (new/2);
+   if (a == 3) return (new/3);
+   if (a == 4) return (new/4);
+   return (new/1);
+}
+
+makeList(length)
+{
+  if (length == 0)
+     return (null);
+  else 
+   { x = newCell();
+     x.1 = makeList(length - 1);           // 12
+-------------------------------------------|  [Syntactic error: Identifier expected instead of /]
+     return (x) ;
+   }
+}
+  
+sign(list)
+{
+  if (list == null)
+     return (1);
+  else
+     return ( list.val() * sign(list.1) ); // 13
+}
+
+val/1(){ return (-1) ; }
+val/2(){ return (1) ; }
+val/3(){ return (-1) ; }
+val/4(){ return (1) ; }

@@ -1,0 +1,8 @@
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pArrayObject4\pArrayObject4.slip 00:00:01
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pArrayObject10\pArrayObject10.slip 00:00:02
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pCOD\pCOD.slip 00:00:03
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pECF\pECF.slip 00:00:03
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pEP\pEP.slip 00:01:44
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pECD\pECD.slip 00:00:04
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pCOF\pCOF.slip 00:00:03
+C:\Users\Cedric\workspace\INGI2339-Project\tests\pArrayObject7\pArrayObject7.slip 00:00:02

@@ -1,0 +1,72 @@
+Définitions :
+-----------
+Une instruction Stmt est CERTAINEMENT INCORRECTE (au sein d'un programme donné) si pour toute exécution du programme qui aboutit au point de programme juste devant l'instruction (exécution "correcte jusque là"), l'exécution de Stmt produit nécessairement une erreur (terminaison anormale du programme).
+
+Une instruction Stmt est CERTAINEMENT CORRECTE (au sein d'un programme donné) si pour toute exécution du programme qui aboutit au point de programme juste devant l'instruction (exécution "correcte jusque là"), l'exécution de Stmt ne produit en aucun cas une erreur (passage à une instruction suivante).
+
+Une instruction Stmt est INACCESSIBLE (au sein d'un programme donné) si aucune exécution (correcte jusque là) du programme ne conduit au point de programme juste avant cette instruction.
+
+Annotations produites par l'analyse statique :
+--------------------------------------------
+
+On décide qu'une analyse statique d'un programme doit annoter chaque instruction d'un programme par une et une seule des quatre annotations suivantes :
+
+NR (Not reachable) : on garantit que l'instruction est inaccessible.
+OK : on garantit que l'instruction est certainement correcte.
+KO : on garantit que l'instruction est certainement incorrecte.
+UK (UnKnown) : on ne garantit rien du tout ("warning").
+
+Il faut remarquer que, d'après les définitions, une instruction inaccessible est aussi (à la fois) certainement correcte et certainement incorrecte. Donc, on utilisera OK et KO uniquement si on ne peut garantir NR. Finalement, on utilisera UK uniquement si l'on ne peut garantir ni NR, ni OK, ni KO. Il y a donc une relation d'ordre (implication) entre les annotations et on demande d'utiliser l'annotation la plus forte.
+
+Les annotations KO et UK peuvent encore être affinés par une description des erreurs pouvant avoir lieu lors de l'exécution de l'instruction : overflow arithmétique, application d'une méthode à un pointeur nul, lecture d'une variable non initialisé, mélange de types, etc...
+
+Présentation des programmes de test :
+-----------------------------------
+Les programmes fournis dans cette "archive" ont été conçus pour tester la qualité de vos analyseurs vis à vis des critères suivants :
+
+  - correction : l'analyseur ne produit pas d'annotation fausse ;
+  - précision  : l'analyseur produit des annotations les plus fortes possibles ;
+  - efficacité : le temps d'analyse (accessoirement, la mémoire utilisée) sont aussi petits que possible.
+
+Les différents programmes de test ont été conçus afin de tester l'un ou l'autre critère plus particulièrement.
+Il n'est pas demandé de fournir les annotations de toutes les instructions de chaque programme mais seulement celles des instructions suivies par un commentaire de la forme // i  où i est un numéro associé à l'instruction.
+Par exemple :
+
+       y = x.m0() ; // 5 
+
+Il est à noter que les programmes de test ont été conçus en supposant que l'instruction de lecture "read(x);" s'exécute toujours sans erreur et qu'elle affecte toujours une valeur entière (qui peut être positive, négative ou nulle) à la variable x.
+
+Travail à réaliser et résultats à fournir :
+-----------------------------------------
+
+1) On demande de fournir pour chaque programme de test pXXXX.slip un fichier de texte (format ascii) de nom pXXXX.ann dont chaque LIGNE a le format suivant :
+
+i AN <commentaires libres>
+
+où i est le numéro d'un commentaire // i, associé à une instruction du programme,
+   AN est une des quatre annotations possibles : NR, OK, KO, UK
+   <commentaires libres> décrit le genre d'erreurs possibles pour l'instruction (si AN = KO ou UK)
+
+2) De même pour chaque programme, on fournit un fichier pXXXX.urm qui contient la liste des méthodes inaccessibles du programme (jamais appelées). Chaque ligne a la forme :
+
+<nom>
+
+   où <nom> est un nom de méthode statique,
+
+ou bien
+
+<nom>/i
+
+où <nom> est un nom de méthode non statique et i est le niveau de la méthode.
+
+3) Un fichier temps.txt qui contient le temps d'analyse de chaque programme sous la forme :
+
+pXXX.slip MM:SS:dd
+
+  où MM est un nombre de minutes,
+     SS est un nombre de secondes (entre 0 et 59)
+     dd est un nombre de dixièmes de secondes (entre 0 et 99)
+
+On donnera une telle ligne pour chaque programme.
+
+Remarque : Si l'implémentation de votre langage, réalisée l'an dernier, ou celle de votre analyseur, réalisée cette année, ne prend pas en compte certaines formes d'instructions, vous pouvez les supprimer du programme et ne fournir que les résultats correspondant aux autres sortes d'instructions.
