@@ -1,1 +1,1 @@
-# slip-abstract-interpreter
+This is a school project. Goal was to create a syntax and use different techniques to detect runtime errors like division by zero. More details [here](http://iamlookingforaninternship.com/ressources/AIReport.pdf) (in french).
